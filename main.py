@@ -15,9 +15,9 @@ def get_cat(update, context):
 	if resp.status_code != 200:
 		return False
 	for item in resp.json():
-		print(item)
 		url = item.get('url')
 		print(url)
+		context.bot.send_photo(chat_id=update.effective_chat.id, photo=url)
 
 def start(update, context):
 	context.bot.send_message(chat_id=update.effective_chat.id, text='This is test!')
